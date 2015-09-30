@@ -40,17 +40,33 @@ var game = {
 
 				window.document.body.appendChild (canvas);
 		}
+	},
 
+	event: {
+		load: function () {
+
+		},
+
+		mousedown: function () {
+			window.console.log ('md');
+		},
+
+		resize: function () {
+			game.canvas.autosize ();
+		}
 	},
 
 	load: function () {
-		game.create.canvas();
+		game.create.canvas ();
+
+		window.onmousedown = game.event.mousedown;
+		window.onload = game.event.load;
+		window.onresize = game.event.resize;
 	},
 
 	run: function () {
 		game.load ();
 	}
-
 };
 
 game.run ();
